@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>EduBoom CRM | Kevin's Academy</title>
+<style>
+:root{--bg:#f6f8fb;--card:#fff;--text:#111827;--muted:#667085;--line:#e5e7eb;--blue:#2563eb;--blue2:#dbeafe;--green:#059669;--green2:#dcfce7;--red:#e11d48;--red2:#ffe4e6;--orange:#f59e0b;--orange2:#fff7ed;--shadow:0 20px 50px rgba(17,24,39,.08);--radius:22px}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Inter,system-ui,-apple-system,Segoe UI,Arial,sans-serif;color:var(--text)}button,input,select,textarea{font:inherit}button{cursor:pointer}.hidden{display:none!important}
+.login{min-height:100vh;display:grid;place-items:center;padding:20px;background:linear-gradient(135deg,#eef5ff,#f9fafb)}
+.login-card{width:min(440px,100%);background:white;border:1px solid var(--line);border-radius:30px;box-shadow:var(--shadow);padding:28px}.logo{width:58px;height:58px;border-radius:20px;background:linear-gradient(135deg,var(--blue),#60a5fa);color:white;display:grid;place-items:center;font-weight:950;font-size:22px}.login h1{margin:18px 0 8px;font-size:32px;letter-spacing:-.04em}.sub{color:var(--muted);line-height:1.5;margin:0 0 18px}.field{margin:12px 0}.field label{display:block;font-size:12px;font-weight:900;color:#475467;margin-bottom:7px}input,select,textarea{width:100%;border:1px solid var(--line);border-radius:15px;background:white;padding:13px;outline:none}input:focus,select:focus,textarea:focus{border-color:var(--blue);box-shadow:0 0 0 4px rgba(37,99,235,.08)}.btn{border:0;border-radius:15px;padding:12px 16px;background:var(--blue);color:white;font-weight:900;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px}.btn.secondary{background:white;color:var(--text);border:1px solid var(--line)}.btn.green{background:var(--green)}.btn.red{background:var(--red)}.btn.small{font-size:12px;padding:8px 10px;min-height:36px;border-radius:12px}.demo-logins{background:#f9fafb;border:1px solid var(--line);border-radius:18px;padding:12px;margin-top:16px;font-size:13px;color:#475467}.demo-logins b{color:#111827}
+.app{display:grid;grid-template-columns:280px 1fr;min-height:100vh}.side{position:sticky;top:0;height:100vh;background:white;border-right:1px solid var(--line);padding:20px;display:flex;flex-direction:column;gap:15px}.brand{display:flex;gap:12px;align-items:center;border-bottom:1px solid var(--line);padding-bottom:16px}.brand strong{display:block;font-size:19px}.brand small{display:block;color:var(--muted);font-size:12px}.nav{display:grid;gap:7px}.nav button{border:0;background:transparent;border-radius:16px;padding:13px 14px;display:flex;align-items:center;gap:12px;text-align:left;font-weight:850;color:#475467}.nav button.active,.nav button:hover{background:var(--blue2);color:var(--blue)}.main{min-width:0}.top{position:sticky;top:0;z-index:5;background:rgba(246,248,251,.88);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);padding:16px 24px;display:flex;justify-content:space-between;gap:15px;align-items:center}.content{padding:24px;max-width:1500px;margin:auto}.page-head{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;margin-bottom:20px}h1{margin:0;font-size:34px;letter-spacing:-.04em}h2{margin:0;font-size:20px;letter-spacing:-.03em}.grid{display:grid;gap:16px}.stats{grid-template-columns:repeat(4,1fr)}.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.stat{padding:20px}.stat small{display:block;color:var(--muted);font-weight:850}.stat b{display:block;margin-top:10px;font-size:30px;letter-spacing:-.04em}.split{display:grid;grid-template-columns:1.1fr .9fr;gap:16px;margin-top:16px}.panel-head{padding:18px 20px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:12px}.panel-body{padding:18px 20px}.list{display:grid;gap:10px}.row{display:flex;justify-content:space-between;align-items:center;gap:12px;border:1px solid var(--line);border-radius:16px;padding:13px;background:#fff}.row small{display:block;color:var(--muted);margin-top:3px}.badge{display:inline-flex;padding:7px 9px;border-radius:999px;font-size:12px;font-weight:900;white-space:nowrap}.green{background:var(--green2);color:var(--green)}.blue{background:var(--blue2);color:var(--blue)}.redb{background:var(--red2);color:var(--red)}.orange{background:var(--orange2);color:#b45309}.gray{background:#eef2f7;color:#475467}
+.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:20px;background:white}table{width:100%;border-collapse:collapse;min-width:850px}th,td{padding:14px;border-bottom:1px solid var(--line);text-align:left;font-size:14px}th{font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);background:#fbfcff}.pipeline{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.pipe{background:white;border:1px solid var(--line);border-radius:22px;min-height:360px}.pipe-head{padding:15px;border-bottom:1px solid var(--line);font-weight:950;display:flex;justify-content:space-between}.lead-card{margin:10px;padding:13px;border:1px solid var(--line);border-radius:16px;background:#fbfcff}.lead-card small{display:block;color:var(--muted);margin-top:4px}.bars{display:grid;gap:13px}.bar-row{display:grid;grid-template-columns:110px 1fr 80px;gap:10px;align-items:center}.bar{height:12px;background:#eef2f7;border-radius:999px;overflow:hidden}.bar span{display:block;height:100%;background:var(--blue)}
+.modal{position:fixed;inset:0;background:rgba(17,24,39,.35);backdrop-filter:blur(10px);display:none;place-items:center;padding:18px;z-index:50}.modal.open{display:grid}.modal-card{width:min(720px,100%);background:white;border-radius:28px;box-shadow:0 30px 100px rgba(17,24,39,.25);max-height:90vh;overflow:auto}.modal-head{padding:20px 24px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between}.modal-body{padding:22px 24px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}.full{grid-column:1/-1}.actions{display:flex;justify-content:flex-end;gap:10px;margin-top:18px}.x{border:0;background:#f2f4f7;border-radius:12px;width:38px;height:38px;font-weight:950}.toast{position:fixed;right:20px;bottom:20px;background:#111827;color:white;padding:13px 16px;border-radius:16px;display:none;z-index:80}.toast.show{display:block}.menu{display:none}
+@media(max-width:1050px){.app{grid-template-columns:1fr}.side{position:fixed;left:-310px;width:280px;z-index:20;transition:.25s;box-shadow:var(--shadow)}.side.open{left:0}.menu{display:inline-flex}.stats,.split,.pipeline{grid-template-columns:1fr}.content{padding:16px}.top{padding:14px}}
+@media(max-width:650px){.page-head{flex-direction:column}h1{font-size:28px}.form-grid{grid-template-columns:1fr}.top{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<section id="login" class="login">
+  <div class="login-card">
+    <div class="logo">EB</div>
+    <h1>EduBoom CRM</h1>
+    <p class="sub">Kevin's Academy demo account. Shared database, login, PostgreSQL. Not that localStorage tragedy.</p>
+    <div class="field"><label>Email</label><input id="email" value="owner@kevins.demo"></div>
+    <div class="field"><label>Password</label><input id="password" type="password" value="Kevin2026!"></div>
+    <button class="btn" style="width:100%" onclick="login()">Login</button>
+    <div class="demo-logins">
+      <b>Demo password:</b> Kevin2026!<br>
+      owner@kevins.demo · manager@kevins.demo · reception@kevins.demo · teacher@kevins.demo · accountant@kevins.demo
+    </div>
+  </div>
+</section>
+
+<section id="app" class="app hidden">
+  <aside class="side" id="side">
+    <div class="brand"><div class="logo">EB</div><div><strong>EduBoom CRM</strong><small id="centerName">Kevin's Academy</small></div></div>
+    <div class="field"><label>Role</label><input id="roleBox" disabled></div>
+    <nav class="nav" id="nav"></nav>
+    <button class="btn secondary" style="margin-top:auto" onclick="logout()">Logout</button>
+  </aside>
+  <main class="main">
+    <div class="top">
+      <button class="btn secondary menu" onclick="side.classList.toggle('open')">☰</button>
+      <div><b id="userName"></b><br><small id="userEmail" style="color:var(--muted)"></small></div>
+      <button class="btn" onclick="openModal('payment')">+ Payment</button>
+    </div>
+    <div class="content" id="content"></div>
+  </main>
+</section>
+
+<div class="modal" id="modal"><div class="modal-card"><div class="modal-head"><h2 id="modalTitle"></h2><button class="x" onclick="closeModal()">×</button></div><div class="modal-body" id="modalBody"></div></div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+let user=null, boot=null, view="dashboard";
+const navItems=[
+  ["dashboard","🏠","Dashboard"],["leads","🎯","Leads"],["students","🎓","Students"],["payments","💳","Payments"],["teachers","👨‍🏫","Teachers"],["reports","📊","Reports"]
+];
+const roleViews={owner:["dashboard","leads","students","payments","teachers","reports"],manager:["dashboard","leads","students","payments","reports"],receptionist:["dashboard","leads","students","payments"],teacher:["dashboard","students"],accountant:["dashboard","payments","teachers","reports"]};
+
+async function api(url, opts={}){
+  const r=await fetch(url,{headers:{"Content-Type":"application/json"},...opts});
+  if(!r.ok){let e=await r.json().catch(()=>({error:"Request failed"}));throw new Error(e.error||"Request failed")}
+  return r.json();
+}
+function money(n){return (Number(n)||0).toLocaleString("uz-UZ")+" so'm"}
+function toast(m){const x=document.getElementById("toast");x.textContent=m;x.classList.add("show");setTimeout(()=>x.classList.remove("show"),1800)}
+async function login(){
+  try{const r=await api("/api/login",{method:"POST",body:JSON.stringify({email:email.value,password:password.value})});user=r.user;await start()}
+  catch(e){toast(e.message)}
+}
+async function logout(){await api("/api/logout",{method:"POST"});location.reload()}
+async function start(){
+  const me=await api("/api/me");user=me.user;if(!user)return;
+  boot=await api("/api/bootstrap");
+  login.classList.add("hidden");app.classList.remove("hidden");
+  centerName.textContent=boot.center.name;userName.textContent=user.name;userEmail.textContent=user.email;roleBox.value=user.role;
+  renderNav();go("dashboard");
+}
+function renderNav(){
+  const allowed=roleViews[user.role]||roleViews.owner;
+  nav.innerHTML=navItems.filter(x=>allowed.includes(x[0])).map(x=>`<button class="${view===x[0]?'active':''}" onclick="go('${x[0]}')"><span>${x[1]}</span>${x[2]}</button>`).join("");
+}
+function go(v){view=v;side.classList.remove("open");renderNav();({dashboard,leads,students,payments,teachers,reports}[v])()}
+function head(title,sub,button=""){return `<div class="page-head"><div><h1>${title}</h1><p class="sub">${sub}</p></div><div>${button}</div></div>`}
+function stat(label,value){return `<div class="card stat"><small>${label}</small><b>${value}</b></div>`}
+async function dashboard(){
+  const d=await api("/api/dashboard");
+  const leadTotal=d.leads.reduce((a,b)=>a+b.count,0);
+  content.innerHTML=head("Kevin's Academy Dashboard","150-student demo center with real shared database logic. Finally, not smoke and mirrors.")
+  +`<div class="grid stats">${stat("Total students",d.students)}${stat("Active students",d.active)}${stat("Monthly revenue",money(d.revenue))}${stat("Student debt",money(d.debt))}</div>
+  <div class="split">
+    <div class="card"><div class="panel-head"><h2>Course mix</h2></div><div class="panel-body bars">${d.courseMix.map(x=>bar(x.type,x.count,d.students)).join("")}</div></div>
+    <div class="card"><div class="panel-head"><h2>Lead analytics</h2><span class="badge blue">${leadTotal} leads</span></div><div class="panel-body bars">${d.leads.map(x=>bar(x.status,x.count,leadTotal)).join("")}</div></div>
+  </div>
+  <div class="split">
+    <div class="card"><div class="panel-head"><h2>Recent payments</h2></div><div class="panel-body list">${d.recentPayments.map(p=>row(p.student_name,`${p.method} · ${p.teacher_name||"No teacher"}`,`<span class="badge green">${money(p.amount)}</span>`)).join("")}</div></div>
+    <div class="card"><div class="panel-head"><h2>Needs attention</h2></div><div class="panel-body list">${d.attention.map(s=>row(s.name,`${s.group_name||""} · ${s.notes||""}`,`<span class="badge redb">${money(s.balance)}</span>`)).join("")}</div></div>
+  </div>`;
+}
+function row(a,b,c){return `<div class="row"><div><strong>${a}</strong><small>${b}</small></div>${c||""}</div>`}
+function bar(label,val,max){return `<div class="bar-row"><small>${label}</small><div class="bar"><span style="width:${Math.max(4,Math.round(val/(max||1)*100))}%"></span></div><b>${val}</b></div>`}
+async function students(){
+  const data=await api("/api/students");
+  content.innerHTML=head("Students",`${data.length} students inside Kevin's Academy demo. ESL, IELTS, CEFR, debt, groups, all the spicy admin pain.`,`<button class="btn" onclick="openModal('student')">+ Student</button>`)
+  +`<div class="table-wrap"><table><thead><tr><th>Name</th><th>Phone</th><th>Course</th><th>Group</th><th>Status</th><th>Debt</th></tr></thead><tbody>${data.map(s=>`<tr><td><b>${s.name}</b><br><small>${s.level||""} · age ${s.age||""}</small></td><td>${s.phone}<br><small>${s.parent_phone||""}</small></td><td>${s.course_name}<br><small>${s.course_type}</small></td><td>${s.group_name}</td><td><span class="badge blue">${s.status}</span></td><td>${s.balance>0?`<span class="badge redb">${money(s.balance)}</span>`:`<span class="badge green">0</span>`}</td></tr>`).join("")}</tbody></table></div>`;
+}
+async function leads(){
+  const data=await api("/api/leads"); const cols=["received","trial","enrolled","first_payment"];
+  content.innerHTML=head("Leads Pipeline","Received, trial, enrolled, first payment. Actual sales funnel, not just colorful rectangles pretending to be strategy.",`<button class="btn" onclick="openModal('lead')">+ Lead</button>`)
+  +`<div class="pipeline">${cols.map(c=>`<div class="pipe"><div class="pipe-head"><span>${c}</span><span class="badge gray">${data.filter(x=>x.status===c).length}</span></div>${data.filter(x=>x.status===c).map(l=>`<div class="lead-card"><b>${l.name}</b><small>${l.phone} · ${l.course_interest}</small><small>${l.source}</small><div style="margin-top:10px">${nextLead(l,c)}</div></div>`).join("")}</div>`).join("")}</div>`;
+}
+function nextLead(l,c){const cols=["received","trial","enrolled","first_payment"];const i=cols.indexOf(c);return i<3?`<button class="btn small" onclick="moveLead(${l.id},'${cols[i+1]}')">Move to ${cols[i+1]}</button>`:""}
+async function moveLead(id,status){await api(`/api/leads/${id}/status`,{method:"PATCH",body:JSON.stringify({status})});toast("Saved");leads()}
+async function payments(){
+  const data=await api("/api/payments");
+  content.innerHTML=head("Payments","Payments are shared in PostgreSQL. Accountant can stop praying over Excel now.",`<button class="btn" onclick="openModal('payment')">+ Payment</button>`)
+  +`<div class="table-wrap"><table><thead><tr><th>Student</th><th>Amount</th><th>Method</th><th>Teacher</th><th>Group</th><th>Date</th></tr></thead><tbody>${data.map(p=>`<tr><td><b>${p.student_name}</b></td><td>${money(p.amount)}</td><td>${p.method}</td><td>${p.teacher_name||"—"}</td><td>${p.group_name||"—"}</td><td>${String(p.paid_at).slice(0,10)}</td></tr>`).join("")}</tbody></table></div>`;
+}
+async function teachers(){
+  const data=await api("/api/teachers");
+  content.innerHTML=head("Teachers","Salary is calculated from student payments multiplied by teacher percentage. Basic math, somehow still revolutionary.")
+  +`<div class="grid">${data.map(t=>`<div class="card"><div class="panel-head"><div><h2>${t.name}</h2><p class="sub">${t.specialization||""}</p></div><span class="badge blue">${t.percentage}%</span></div><div class="panel-body"><div class="grid stats">${stat("Students",t.student_count)}${stat("Paid by students",money(t.paid_by_students))}${stat("Calculated salary",money(t.salary))}${stat("Phone",t.phone||"—")}</div></div></div>`).join("")}</div>`;
+}
+async function reports(){
+  const d=await api("/api/dashboard");
+  const totalLeads=d.leads.reduce((a,b)=>a+b.count,0)||1;
+  const first=(d.leads.find(x=>x.status==="first_payment")||{count:0}).count;
+  content.innerHTML=head("Reports","Owner screen: money, debt, leads, course mix. The holy trinity of education center survival plus charts.")
+  +`<div class="grid stats">${stat("Lead conversion",Math.round(first/totalLeads*100)+"%")}${stat("Revenue",money(d.revenue))}${stat("Debt",money(d.debt))}${stat("Students",d.students)}</div>
+  <div class="split"><div class="card"><div class="panel-head"><h2>Lead funnel</h2></div><div class="panel-body bars">${d.leads.map(x=>bar(x.status,x.count,totalLeads)).join("")}</div></div><div class="card"><div class="panel-head"><h2>Course distribution</h2></div><div class="panel-body bars">${d.courseMix.map(x=>bar(x.type,x.count,d.students)).join("")}</div></div></div>`;
+}
+function openModal(type){
+  modal.classList.add("open");modalTitle.textContent=type==="payment"?"Add payment":type==="student"?"Add student":"Add lead";
+  if(type==="payment") paymentForm(); if(type==="student") studentForm(); if(type==="lead") leadForm();
+}
+function closeModal(){modal.classList.remove("open")}
+async function paymentForm(){
+  const st=await api("/api/students");
+  modalBody.innerHTML=`<div class="form-grid"><div class="field full"><label>Student</label><select id="pStudent">${st.map(s=>`<option value="${s.id}">${s.name} · ${s.group_name}</option>`).join("")}</select></div><div class="field"><label>Amount</label><input id="pAmount" type="number" value="450000"></div><div class="field"><label>Method</label><select id="pMethod"><option>cash</option><option>card</option><option>click</option><option>payme</option></select></div></div><div class="actions"><button class="btn secondary" onclick="closeModal()">Cancel</button><button class="btn" onclick="savePayment()">Save</button></div>`;
+}
+async function savePayment(){await api("/api/payments",{method:"POST",body:JSON.stringify({student_id:pStudent.value,amount:pAmount.value,method:pMethod.value})});closeModal();toast("Payment saved");go("payments")}
+function studentForm(){
+  modalBody.innerHTML=`<div class="form-grid"><div class="field"><label>Name</label><input id="sName"></div><div class="field"><label>Phone</label><input id="sPhone"></div><div class="field"><label>Parent phone</label><input id="sParent"></div><div class="field"><label>Age</label><input id="sAge" type="number"></div><div class="field"><label>Level</label><input id="sLevel" value="A1"></div><div class="field"><label>Group</label><select id="sGroup">${boot.groups.map(g=>`<option value="${g.id}">${g.name}</option>`).join("")}</select></div><div class="field"><label>Debt</label><input id="sBalance" type="number" value="0"></div></div><div class="actions"><button class="btn secondary" onclick="closeModal()">Cancel</button><button class="btn" onclick="saveStudent()">Save</button></div>`;
+}
+async function saveStudent(){await api("/api/students",{method:"POST",body:JSON.stringify({name:sName.value,phone:sPhone.value,parent_phone:sParent.value,age:sAge.value,level:sLevel.value,group_id:sGroup.value,balance:sBalance.value})});closeModal();toast("Student saved");go("students")}
+function leadForm(){
+  modalBody.innerHTML=`<div class="form-grid"><div class="field"><label>Name</label><input id="lName"></div><div class="field"><label>Phone</label><input id="lPhone"></div><div class="field"><label>Age</label><input id="lAge" type="number"></div><div class="field"><label>Course interest</label><input id="lCourse" value="IELTS Preparation"></div><div class="field"><label>Source</label><select id="lSource"><option>Instagram</option><option>Telegram</option><option>Walk-in</option><option>Referral</option><option>Website</option></select></div></div><div class="actions"><button class="btn secondary" onclick="closeModal()">Cancel</button><button class="btn" onclick="saveLead()">Save</button></div>`;
+}
+async function saveLead(){await api("/api/leads",{method:"POST",body:JSON.stringify({name:lName.value,phone:lPhone.value,age:lAge.value,course_interest:lCourse.value,source:lSource.value})});closeModal();toast("Lead saved");go("leads")}
+api("/api/me").then(r=>{if(r.user){user=r.user;start()}}).catch(()=>{});
+</script>
+</body>
+</html>
